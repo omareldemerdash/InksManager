@@ -1,8 +1,0 @@
-# Dockerfile.db (optional if you want custom MySQL setup)
-FROM mysql:5.7
-
-# Set environment variables
-ENV MYSQL_ROOT_PASSWORD=your_root_password
-ENV MYSQL_DATABASE=inks_db
-
-COPY ./db_files/inks_db.sql /docker-entrypoint-initdb.d/

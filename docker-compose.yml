@@ -2,7 +2,7 @@ services:
   db:
     build:
       context: .
-      dockerfile: Dockerfile.db
+      target: db
     environment:
       MYSQL_ROOT_PASSWORD: your_root_password
       MYSQL_DATABASE: inks_db
@@ -18,7 +18,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.app
+      target: app
     ports:
       - "3000:3000"
     depends_on:
