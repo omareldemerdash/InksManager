@@ -1,14 +1,14 @@
 pipeline {
   agent any
   environment {
-        CREDENTIALS = credentials('b7f21079-c4a0-425d-9b1a-ca0683a9b1b3')
+        CREDENTIALS = credentials('dockerhub')
   }
   stages {
     stage('build') {
       steps {
         sh '''
         docker build -t omareldemerdash28/inksmanager:$BUILD_NUMBER .;
-        docker login -u $CREDENTIALS_USERNAME -p $CREDENTIALS_PASSWORD ;
+        echo $CREDENTIALS_PSW | docker login -u $CREDENTIALS_USR --password-stdin;
         docker push omareldemerdash28/nodejs-react:$BUILD_NUMBER
         '''
 
