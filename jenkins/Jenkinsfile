@@ -8,7 +8,7 @@ pipeline {
       steps {
         sh '''
         docker build -t omareldemerdash28/inksmanager:$BUILD_NUMBER .;
-        docker login -u $USERNAME -p $PASSWORD ;
+        docker login -u $CREDENTIALS_USERNAME -p $CREDENTIALS_PASSWORD ;
         docker push omareldemerdash28/nodejs-react:$BUILD_NUMBER
         '''
 
