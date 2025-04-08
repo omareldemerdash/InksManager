@@ -1,5 +1,5 @@
 # InksManager
-Web app to manage the quantities of inks and cartridges for printers.
+Dockerized Web app to manage the quantities of inks and cartridges for printers.
 
 Run for the first time:
 
