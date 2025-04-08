@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  environment {
+        CREDENTIALS = credentials('b7f21079-c4a0-425d-9b1a-ca0683a9b1b3')
+  }
+  stages {
+    stage('build') {
+      steps {
+        sh '''
+        docker images -a | grep "omareldemerdash28/inksmanager*" | awk '{print $1":"$2}' | xargs docker rmi -f;
+        docker build -t omareldemerdash28/inksmanager:$BUILD_NUMBER .;
+        docker login -u $USERNAME -p $PASSWORD ;
+        docker push omareldemerdash28/nodejs-react:$BUILD_NUMBER
+        '''
+
+      }
+    }
+
+  }
+}
