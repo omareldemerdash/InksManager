@@ -9,7 +9,8 @@ pipeline {
       branch: '',
       sortMode: 'DESCENDING_SMART',
       selectedValue: 'TOP',
-      useRepository: 'https://github.com/omareldemerdash/InksManager.git'
+      useRepository: 'https://github.com/omareldemerdash/InksManager.git',
+      requiredParameter: 'enable'
     )
   }
   environment {
