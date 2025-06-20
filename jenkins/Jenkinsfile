@@ -1,5 +1,17 @@
 pipeline {
   agent any
+  parameters {
+    gitParameter(
+      name: 'TAG_TO_DEPLOY',
+      type: 'PT_TAG',
+      defaultValue: '',
+      description: 'Select a Git tag to deploy',
+      branch: '',
+      sortMode: 'DESCENDING_SMART',
+      selectedValue: 'TOP'
+      useRepository: 'https://github.com/omareldemerdash/InksManager.git'
+    )
+  }
   environment {
         CREDENTIALS = credentials('dockerhub')
         AWS_DEFAULT_REGION = 'us-east-1'
