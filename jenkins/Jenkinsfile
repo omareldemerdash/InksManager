@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'TAG_TO_DEPLOY', defaultValue: '', description: 'Git tag selected from dropdown')
+    string(name: 'TAG_TO_DEPLOY', defaultValue: '', description: 'Git tag selected from dropdown!')
   }
   environment {
         CREDENTIALS = credentials('dockerhub')
